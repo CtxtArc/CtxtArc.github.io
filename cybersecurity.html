@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cybersecurity — CtxtArc</title>
+<meta name="description" content="Malware analysis case log — writeups on reversing real samples, by CtxtArc.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="prompt"><a href="index.html"><span class="sigil">ctxtarc@root</span>:~$</a></div>
+    <nav class="navpaths">
+      <a href="index.html">./home</a>
+      <a href="cybersecurity.html">./cybersecurity</a>
+      <a href="lowlevel.html">./low-level</a>
+      <a href="android.html">./android</a>
+      <a href="https://github.com/CtxtArc">./github ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero">
+    <p class="eyebrow">// cd cybersecurity</p>
+    <h1>reversing things until they explain themselves.</h1>
+    <p class="lede">
+      Static and dynamic analysis on real malware samples, pulled from
+      <a href="https://bazaar.abuse.ch/">MalwareBazaar</a> and worked through end
+      to end — every case below is a full writeup in the
+      <a href="https://github.com/CtxtArc/malware-analysis">malware-analysis</a> repo.
+    </p>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <span class="offset">0x0000</span>
+      <h2>case log</h2>
+      <span class="tag">4 samples</span>
+    </div>
+
+    <div class="projects">
+
+      <article class="card featured">
+        <div class="card-head">
+          <h3 class="card-title">Multi-stage .NET loader — "Remington" stealer</h3>
+          <span class="status-badge">closed</span>
+        </div>
+        <p class="case-hash" title="25d07038c6cd7c5e6f43547f6078f70797aed03f572d39dc9395163b2913a62c">25d07038c6…913a62c</p>
+        <p class="card-desc">
+          A four-stage, entirely in-memory loader chain: a heavily obfuscated
+          JScript dropper hands off through PowerShell and a .NET reflection
+          loader to a final stealer that targets 40+ browsers, crypto wallet
+          extensions, clipboard contents, and keystrokes — exfiltrating over
+          SMTP and Telegram. Includes geo-fencing against a specific country
+          and Windows-11-aware EDR unhooking.
+        </p>
+        <div class="topics">
+          <span class="topic">windows</span>
+          <span class="topic">in-memory loader</span>
+        </div>
+        <a class="card-link" href="https://github.com/CtxtArc/malware-analysis/blob/main/25d07038c6cd7c5e6f43547f6078f70797aed03f572d39dc9395163b2913a62c/README.md">read full report →</a>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <h3 class="card-title">dps_radar — Android banking RAT</h3>
+          <span class="status-badge">closed</span>
+        </div>
+        <p class="case-hash" title="92d605cf12194302820a7e71e368690217e5ffc2bacf808084616ece5b89bfc2">92d605cf12…5b89bfc2</p>
+        <p class="card-desc">
+          A trojanized Android app that talks to its operator entirely over
+          the Telegram Bot API. It hijacks the default-SMS role to intercept
+          one-time codes while suppressing the notification that would
+          otherwise tip off the victim, and keeps its C2 credentials
+          AES-encrypted inside a native library rather than in plain Kotlin.
+        </p>
+        <div class="topics">
+          <span class="topic">android</span>
+          <span class="topic">telegram c2</span>
+        </div>
+        <a class="card-link" href="https://github.com/CtxtArc/malware-analysis/blob/main/92d605cf12194302820a7e71e368690217e5ffc2bacf808084616ece5b89bfc2/README.md">read full report →</a>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <h3 class="card-title">FreePBX / Asterisk bash implant</h3>
+          <span class="status-badge">closed</span>
+        </div>
+        <p class="case-hash" title="26109688d5647bd23f18049a3a72aa1817388871fb9004fea576446bdd24ae4d">26109688d5…6bdd24ae4d</p>
+        <p class="card-desc">
+          A bash-and-PHP toolkit aimed at fully taking over a FreePBX/Asterisk
+          phone server for toll fraud — nested web shells, a backdoored admin
+          account, active removal of rival malware and legitimate admins, and
+          anti-forensics cleanup. Tactics overlap with the JOMANGY toll-fraud
+          campaign publicly attributed to the INJ3CTOR3 group, though that
+          attribution is held here as a working hypothesis, not a certainty.
+        </p>
+        <div class="topics">
+          <span class="topic">linux</span>
+          <span class="topic">toll fraud</span>
+        </div>
+        <a class="card-link" href="https://github.com/CtxtArc/malware-analysis/blob/main/26109688d5647bd23f18049a3a72aa1817388871fb9004fea576446bdd24ae4d/README.md">read full report →</a>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <h3 class="card-title">Obfuscated JScript/.NET loader</h3>
+          <span class="status-badge partial">partial</span>
+        </div>
+        <p class="case-hash" title="b520ec22d54dad3cdacb65e6a4e26aa4540fbbb033b14d84548548cdcc68ecdc">b520ec22d5…8cdcc68ecdc</p>
+        <p class="card-desc">
+          Static analysis of a JScript loader that pivots through a
+          WMI-spawned PowerShell process to a remote staging server, decodes
+          a reversed and character-substituted payload into a .NET assembly,
+          and invokes it via reflection. The staging server had gone offline
+          by the time of analysis, so the final-stage assembly was never
+          recovered — logged here as an open case rather than closed out.
+        </p>
+        <div class="topics">
+          <span class="topic">windows</span>
+          <span class="topic">incomplete</span>
+        </div>
+        <a class="card-link" href="https://github.com/CtxtArc/malware-analysis/blob/main/b520ec22d54dad3cdacb65e6a4e26aa4540fbbb033b14d84548548cdcc68ecdc/README.md">read full report →</a>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <span class="offset">0x0040</span>
+      <h2>related</h2>
+    </div>
+    <p class="callout">
+      Some low-level work overlaps here more than the folder split suggests —
+      <a href="lowlevel.html">Phase</a> is a compiler for proving memory safety in
+      hardware pipelines, which is really a defensive project wearing a
+      systems-programming hat.
+    </p>
+  </section>
+
+</main>
+
+<footer class="sitefoot">
+  <div class="wrap sitefoot-row">
+    <span>CtxtArc.github.io</span>
+    <a href="https://github.com/CtxtArc">github.com/CtxtArc ↗</a>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

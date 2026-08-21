@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CtxtArc</title>
+<meta name="description" content="CtxtArc — cybersecurity, low-level systems programming, and Android projects.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="prompt"><span class="sigil">ctxtarc@root</span>:~$</div>
+    <nav class="navpaths">
+      <a href="index.html">./home</a>
+      <a href="cybersecurity.html">./cybersecurity</a>
+      <a href="lowlevel.html">./low-level</a>
+      <a href="android.html">./android</a>
+      <a href="https://github.com/CtxtArc">./github ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero">
+    <p class="eyebrow">// whoami</p>
+    <h1>root shell into memory, silicon, and phones.</h1>
+    <p class="lede">
+      I build things closer to the metal than they need to be — toy kernels, a RISC-V
+      assembler, a compiler that proves memory safety for hardware pipelines — and
+      occasionally surface for Android apps I actually use. This site is a map of
+      that work, sorted the way I'd sort a filesystem.
+    </p>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <span class="offset">0x0000</span>
+      <h2>ls -la ~/work</h2>
+    </div>
+
+    <div class="dirlist">
+      <div class="dirlist-header">total 3 directories</div>
+
+      <a class="direntry" href="cybersecurity.html">
+        <div class="direntry-row">
+          <span class="direntry-perm">drwxr-xr-x</span>
+          <span class="direntry-name">cybersecurity/</span>
+          <span class="direntry-count">4 cases</span>
+        </div>
+        <p class="direntry-desc">Malware reversing writeups — Windows loaders, an Android banking RAT, a FreePBX toll-fraud implant.</p>
+      </a>
+
+      <a class="direntry" href="lowlevel.html">
+        <div class="direntry-row">
+          <span class="direntry-perm">drwxr-xr-x</span>
+          <span class="direntry-name">low-level/</span>
+          <span class="direntry-count">7 repos</span>
+        </div>
+        <p class="direntry-desc">A toy OS, a RISC-V assembler, a memory-safety compiler for hardware pipelines, and other systems tools.</p>
+      </a>
+
+      <a class="direntry" href="android.html">
+        <div class="direntry-row">
+          <span class="direntry-perm">drwxr-xr-x</span>
+          <span class="direntry-name">android/</span>
+          <span class="direntry-count">2 apps</span>
+        </div>
+        <p class="direntry-desc">Asgard and YggdrasilMusicPlayer — download the APKs directly, no store required.</p>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="sitefoot">
+  <div class="wrap sitefoot-row">
+    <span>CtxtArc.github.io</span>
+    <a href="https://github.com/CtxtArc">github.com/CtxtArc ↗</a>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Low-level — CtxtArc</title>
+<meta name="description" content="Systems programming, kernels, compilers, and CLI tools by CtxtArc.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="prompt"><a href="index.html"><span class="sigil">ctxtarc@root</span>:~$</a></div>
+    <nav class="navpaths">
+      <a href="index.html">./home</a>
+      <a href="cybersecurity.html">./cybersecurity</a>
+      <a href="lowlevel.html">./low-level</a>
+      <a href="android.html">./android</a>
+      <a href="https://github.com/CtxtArc">./github ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero">
+    <p class="eyebrow">// cd low-level</p>
+    <h1>as few layers between me and the hardware as reasonable.</h1>
+    <p class="lede">
+      Kernels, assemblers, compilers, and the small CLI tools you end up writing
+      once you get curious what's underneath the ones everyone already uses.
+    </p>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <span class="offset">0x0000</span>
+      <h2>systems &amp; compilers</h2>
+    </div>
+
+    <div class="projects">
+      <article class="card featured">
+        <div class="card-head">
+          <h3 class="card-title"><a href="https://github.com/CtxtArc/Phase">Phase</a></h3>
+          <div class="card-meta">
+            <span><span class="lang-dot" style="background:#dea584"></span>Rust</span>
+            <span class="stars" data-repo="Phase">★ 0</span>
+          </div>
+        </div>
+        <p class="card-desc">
+          A domain-specific compiler that mathematically proves memory safety for
+          hardware pipelines — DMA, MMIO, and zero-copy devices — using typestate
+          and static analysis instead of hoping the driver code is right.
+        </p>
+        <div class="topics">
+          <span class="topic">compiler</span><span class="topic">memory-safety</span>
+          <span class="topic">embedded-systems</span>
+        </div>
+        <a class="card-link" href="https://github.com/CtxtArc/Phase">view repository →</a>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <h3 class="card-title"><a href="https://github.com/CtxtArc/OS">OS</a></h3>
+          <div class="card-meta">
+            <span><span class="lang-dot" style="background:#555555"></span>C</span>
+            <span class="stars" data-repo="OS">★ 0</span>
+          </div>
+        </div>
+        <p class="card-desc">
+          A toy operating system written in C, built to find out how far a
+          from-scratch kernel can go.
+        </p>
+        <div class="topics">
+          <span class="topic">kernel</span><span class="topic">os</span>
+        </div>
+        <a class="card-link" href="https://github.com/CtxtArc/OS">view repository →</a>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <h3 class="card-title"><a href="https://github.com/CtxtArc/RISCV-FASM">RISCV-FASM</a></h3>
+          <div class="card-meta">
+            <span><span class="lang-dot" style="background:#6e4c13"></span>Assembly</span>
+            <span class="stars" data-repo="RISCV-FASM">★ 0</span>
+          </div>
+        </div>
+        <p class="card-desc">
+          A RISC-V flat and ELF assembler with a macro system — turning RISC-V
+          assembly into runnable binaries without an existing toolchain.
+        </p>
+        <div class="topics">
+          <span class="topic">risc-v</span><span class="topic">assembler</span>
+        </div>
+        <a class="card-link" href="https://github.com/CtxtArc/RISCV-FASM">view repository →</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <span class="offset">0x0048</span>
+      <h2>cli &amp; tooling</h2>
+    </div>
+
+    <div class="projects">
+      <article class="card">
+        <div class="card-head">
+          <h3 class="card-title"><a href="https://github.com/CtxtArc/procwhy">procwhy</a></h3>
+          <div class="card-meta">
+            <span><span class="lang-dot" style="background:#dea584"></span>Rust</span>
+            <span class="stars" data-repo="procwhy">★ 0</span>
+          </div>
+        </div>
+        <p class="card-desc">
+          A lightweight process diagnostic snapshot tool for Linux and macOS,
+          reading straight from procfs.
+        </p>
+        <div class="topics">
+          <span class="topic">diagnostics</span><span class="topic">procfs</span>
+        </div>
+        <a class="card-link" href="https://github.com/CtxtArc/procwhy">view repository →</a>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <h3 class="card-title"><a href="https://github.com/CtxtArc/rfzf">rfzf</a></h3>
+          <div class="card-meta">
+            <span><span class="lang-dot" style="background:#dea584"></span>Rust</span>
+            <span class="stars" data-repo="rfzf">★ 0</span>
+          </div>
+        </div>
+        <p class="card-desc">
+          A TUI fuzzy finder written in Rust using ratatui — an fzf-flavored
+          picker for the terminal.
+        </p>
+        <div class="topics">
+          <span class="topic">tui</span><span class="topic">ratatui</span>
+        </div>
+        <a class="card-link" href="https://github.com/CtxtArc/rfzf">view repository →</a>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <h3 class="card-title"><a href="https://github.com/CtxtArc/bluwofi">bluwofi</a></h3>
+          <div class="card-meta">
+            <span><span class="lang-dot" style="background:#dea584"></span>Rust</span>
+            <span class="stars" data-repo="bluwofi">★ 0</span>
+          </div>
+        </div>
+        <p class="card-desc">
+          A small Bluetooth manager for Sway, driven through Wofi — talks to
+          BlueZ over D-Bus so pairing doesn't need a full desktop environment.
+        </p>
+        <div class="topics">
+          <span class="topic">bluetooth</span><span class="topic">sway</span>
+        </div>
+        <a class="card-link" href="https://github.com/CtxtArc/bluwofi">view repository →</a>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <h3 class="card-title"><a href="https://github.com/CtxtArc/ctxcut">ctxcut</a></h3>
+          <div class="card-meta">
+            <span><span class="lang-dot" style="background:#555555"></span>C</span>
+            <span class="stars" data-repo="ctxcut">★ 0</span>
+          </div>
+        </div>
+        <p class="card-desc">A C project, in progress — check the repository for the current state.</p>
+        <a class="card-link" href="https://github.com/CtxtArc/ctxcut">view repository →</a>
+      </article>
+    </div>
+  </section>
+
+</main>
+
+<footer class="sitefoot">
+  <div class="wrap sitefoot-row">
+    <span>CtxtArc.github.io</span>
+    <a href="https://github.com/CtxtArc">github.com/CtxtArc ↗</a>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
