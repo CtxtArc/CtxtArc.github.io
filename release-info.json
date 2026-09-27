@@ -1,10 +1,10 @@
 {
   "Asgard": {
-    "tag_name": "Android_13_v2",
-    "name": "Asgard v0.2",
-    "published_at": "2026-07-29T08:40:01Z",
-    "apk_url": "https://github.com/CtxtArc/Asgard/releases/download/Android_13_v2/Asgard_Android13.apk",
-    "apk_size": 3968771,
+    "tag_name": "Android_13_v3",
+    "name": "Asgard v0.3",
+    "published_at": "2026-09-27T10:43:11Z",
+    "apk_url": "https://github.com/CtxtArc/Asgard/releases/download/Android_13_v3/Asgard_v0.3.apk",
+    "apk_size": 3968795,
     "stargazers_count": 1
   },
   "YggdrasilMusicPlayer": {
@@ -23,5 +23,5 @@
     "apk_size": 3253323,
     "stargazers_count": 0
   },
-  "generated_at": "2026-09-27T05:06:17Z"
+  "generated_at": "2026-09-27T10:43:55Z"
 }
