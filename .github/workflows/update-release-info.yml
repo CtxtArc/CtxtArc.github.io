@@ -77,30 +77,33 @@ jobs:
 
           cat release-info.json
 
+     
       - name: Commit if changed
         run: |
-          set -e
+          set -euo pipefail
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           git add release-info.json
 
-          if git diff --staged --quiet; then
+          if git diff --cached --quiet; then
             echo "No changes"
             exit 0
           fi
 
           git commit -m "chore: update release-info.json [skip ci]"
 
+          echo "Fetching latest remote changes..."
           git fetch origin main
 
-          if ! git rebase origin/main; then
-            echo "Resolving release-info.json conflict using generated version"
+          echo "Rebasing onto latest main..."
+          git rebase origin/main
 
-            git checkout --theirs -- release-info.json
-            git add release-info.json
-            GIT_EDITOR=true git rebase --continue
-          fi
+          echo "Pushing updated release information..."
+          git push origin HEAD:main
+
+          echo "Successfully updated release-info.json"
+
 
           git push origin main
